@@ -18,5 +18,5 @@
   "background_color": "#ffffff",
   "scope": "/htmlTest/",
   "display": "standalone",
-  "start_url": "/htmlTest/"
+  "start_url": "/htmlTest/?utm_source=pwaUC&utm_medium=homescreen&utm_campaign=pwaUC"
 }

@@ -1,4 +1,12 @@
 //This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
+//workbox.googleAnalytics.initialize();
+
+workbox.googleAnalytics.initialize({
+  parameterOverrides: {
+    cd2: 'Offline',
+  },
+});
 
 //Install stage sets up the offline page in the cache and opens a new cache
 self.addEventListener('install', function(event) {

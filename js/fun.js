@@ -6,6 +6,7 @@ let inOpt;
 let ValueUC;
 let optSl;
 let jdatasl;
+let isInBrowser = "";
 
 let stSede = false;
 let stPer = false;
@@ -100,6 +101,15 @@ if (navigator.serviceWorker.controller) {
     });
   }
   
+  // reemplazar 'standalone' por 'fullscreen' o 'minimal-ui' según el manifest de la app
+if (matchMedia('(display-mode: standalone)').matches) {
+    // iOS 11.3+ y Android
+    isInBrowser = "Pwa";
+  } else if ('standalone' in navigator) {
+    // para iOS &lt; 11.3
+    isInBrowser = "Pwa";
+  }
+  
 
 function DiasPasados() {
     f1 = '28/02/2018';
@@ -136,7 +146,7 @@ function setGa(value){
 
     let a = "Set: " + value;
     gtag('event', "ToggleGA", {
-        'event_category': "DevInteraccion",
+        'event_category': "DevInteraccion" + isInBrowser,
         'event_label': a
       });
     
@@ -150,13 +160,13 @@ function OnClickGa(act, typeInter , lb){
     if(lb){
         //console.log('enter');
         gtag('event', act, {
-            'event_category': typeInter + "Interaccion",
+            'event_category': typeInter + "Interaccion" + isInBrowser,
             'event_label': lb
           });
     }else{
         //console.log('not enter');
         gtag('event', act, {
-            'event_category': typeInter + "Interaccion"
+            'event_category': typeInter + "Interaccion" + isInBrowser
           });
     }
     
@@ -202,7 +212,7 @@ function OnPerSelect(){
     let vmu = "MoneyUnit: " + Tbs;
 
     gtag('event', "PeriodoSelect", {
-        'event_category': "UCinteraccion",
+        'event_category': "UCinteraccion" + isInBrowser,
         'event_label': vmu
       });
 
@@ -331,7 +341,7 @@ function OnLoadCarrera(){
         //console.log(jdatasl);
 
         gtag('event', "CarreraSelect", {
-            'event_category': "UCinteraccion",
+            'event_category': "UCinteraccion" + isInBrowser,
             'event_label': optText
           });
 
@@ -492,7 +502,7 @@ function OnChangeMat(ind){
         //console.log('return', s);
 
         gtag('event', "MateriaSelect", {
-            'event_category': "UCinteraccion",
+            'event_category': "UCinteraccion" + isInBrowser,
             'event_label': s
         });
 
@@ -735,7 +745,7 @@ function Totalizacion(){
     }
 
     gtag('event', "SedeSelect", {
-        'event_category': "UCinteraccion",
+        'event_category': "UCinteraccion" + isInBrowser,
         'event_label': slSede.options[slSede.selectedIndex].text
       });
 
@@ -805,7 +815,7 @@ function Totalizacion(){
 
     let c = "Coop: " + slcoop.options[slcoop.selectedIndex].text;
     gtag('event', "CoopSelect", {
-        'event_category': "UCinteraccion",
+        'event_category': "UCinteraccion" + isInBrowser,
         'event_label': c,
         'value': slcoop.options[slcoop.selectedIndex].value
       });
