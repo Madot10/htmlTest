@@ -1,6 +1,7 @@
 {
-  "name": "UCalculadora",
+  "name": "UCalculadoraTest",
   "short_name": "UC+",
+  "lang": "es-ES",
   "icons": [
       {
           "src": "icons/android-chrome-192x192.png?v=69402JgNA9",
@@ -17,7 +18,5 @@
   "background_color": "#ffffff",
   "scope": "/htmlTest/",
   "display": "standalone",
-  "start_url": "/",
-  "gcm_sender_id": "482941778795",
-  "gcm_sender_id_comment": "Do not change the GCM Sender ID"
+  "start_url": "/htmlTest/"
 }
