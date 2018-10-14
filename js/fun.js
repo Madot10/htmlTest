@@ -134,20 +134,20 @@ function OpenCalculadora(){
 //Google analytics togle
 function setGa(value){
 
-    let a = "Set: " + value;
+   /* let a = "Set: " + value;
     gtag('event', "ToggleGA", {
         'event_category': "DevInteraccion",
         'event_label': a
       });
     
     window['ga-disable-UA-33542195-1'] = !value;
-    alert("Establecido ga-disable como: ", value);
+    alert("Establecido ga-disable como: ", value);*/
 }
 
 function OnClickGa(act, typeInter , lb){
     //si existe etiqueta hacer:
     //console.log('LB', lb)
-    if(lb){
+    /*if(lb){
         //console.log('enter');
         gtag('event', act, {
             'event_category': typeInter + "Interaccion",
@@ -158,7 +158,7 @@ function OnClickGa(act, typeInter , lb){
         gtag('event', act, {
             'event_category': typeInter + "Interaccion"
           });
-    }
+    }*/
     
 }
 
