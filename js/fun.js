@@ -94,7 +94,7 @@ if (navigator.serviceWorker.controller) {
   
   //Register the ServiceWorker
     navigator.serviceWorker.register('uc-sw.js', {
-      scope: '../'
+      scope: '/htmlTest/
     }).then(function(reg) {
       console.log('Service worker has been registered for scope:'+ reg.scope);
     });
