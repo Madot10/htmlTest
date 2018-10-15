@@ -980,7 +980,7 @@ function evaluar(orig){
 }
 
 function saveTABLE(mode){
-    html2canvas(document.getElementById('tablaPago'),{scale: '1.5',windowWidth: '768px', backgroundColor: '#ffffff', logging: 'false'})
+    html2canvas(document.getElementById('tablaPago'),{scale: 1.5 ,windowWidth: 768, backgroundColor: '#ffffff', logging: true})
     .then((canvas)=>{
         
 
@@ -1023,8 +1023,10 @@ function saveTABLE(mode){
 
         if(mode == 'pdf'){
             OnClickGa('sharePDF','Social');
-            let doc = new jsPDF('l', 'cm', [(newCanva.height+150)/38,(newCanva.width)/38]);
-            doc.addImage(dataUrl, 'PNG', 1, 1);
+            let k = 2.645833;
+            console.log([(newCanva.width/100)*k, (newCanva.height/100)*k]);
+            let doc = new jsPDF('p', 'cm',[(newCanva.width/85)*k, (newCanva.height/100)*k]); //,[(newCanva.width/100)*k, (newCanva.height/100)*k]
+            doc.addImage(dataUrl, 'PNG', 1,1,(newCanva.width/100)*k, (newCanva.height/100)*k);
             doc.save('TablaPago-UCALCULADORA.pdf');
 
         }else if(mode == 'png'){
